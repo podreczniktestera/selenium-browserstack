@@ -1,0 +1,22 @@
+dist: trusty
+language: python
+
+env:
+  - PYTHONPATH=`pwd`
+
+python:
+  - '2.7'
+  - '3.5'
+  - '3.6'
+  - '3.6-dev'
+  - '3.7-dev'
+  - 'nightly'
+
+install:
+  - pip install -r requirements.txt
+
+script: paver test
+
+notifications:
+  slack:
+    secure: VckDVH55KCrJTUImqC4vK32BQ72+X2kvYQtGXvmF8jaFLS04eGIWLBMfDM6jSYM+SySJYn+c/WoBTCYpL/V1KCdeEWggfQppZGucWoHUtug3cbYNb9hWTw1oguj7Z0wx2/0dedjLGfQni0tPwYXm0UgyAxl7V4/dm4Al9x22AO5mEwEXEOkS8iVJfGr2YNaSdg5jRQigc5neyoPFJEKRWf9B/JNoKonCV+ASJ9Kuu6VJJB2E3/7nJA7WP7Ekuw5sR1VbefyJj8oEyeVMVg5iK5mC3LRKXvDKLKQGcme9y1jIV5oCzEx4DeEZ00ItVSWqvMak6KTRL/9ezpw85VKZr4nrNgQjYYHF4UB8vwUBuwF9+vJj1rFNBisfzYnsFMMg8oErAIw5YEkdH+EqJq6WlVwqMboteIvMopAKqo85oFM6NBqz29eLBVTKOiHGP/wFlfCMEat0A9YyB/SmCIw9VV3j30S4CATa4C1BmHBeXS6geZeN+TgwZXut4cm/c2Wmcnyh1qO1f8NNBVtNBpbZLM3VT6P0qs3gSy0RddlAe4pjCvS4TQdk5n2MN6iUsu219knurLJyvKsIcwjelDCKY7OIwsqxfnYF6Cy/kNgmFHQTtMzRtOzl3xBiMgoawkqbY0XAMeS+vwz/qQZufe8IC+ihBUmBCFtv0W+F3gy/y4I=

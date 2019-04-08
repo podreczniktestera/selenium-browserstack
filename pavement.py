@@ -20,19 +20,8 @@ def run_behave_test(config, task_id=0):
 @task
 @consume_nargs(1)
 def run(args):
-    """Run single, local and parallel test using different config."""
-    if args[0] in ('single', 'local'):
-        run_behave_test(args[0])
-    else:
-        jobs = []
-        for i in range(4):
-            p = multiprocessing.Process(target=run_behave_test, args=(args[0], i))
-            jobs.append(p)
-            p.start()
-
-@task
-def test():
-    """Run all tests"""
-    sh("paver run single")
-    sh("paver run local")
-    sh("paver run parallel")
+    jobs = []
+    for i in range(4):
+        p = multiprocessing.Process(target=run_behave_test, args=(args[0], i))
+        jobs.append(p)
+        p.start()
